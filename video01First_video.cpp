@@ -32,6 +32,16 @@
 	但是总体上来说则是一行行的执行我们所写的代码
 
 */
+
+/*
+	这里的这个程序语句是一个declaration，相当于是告诉compiler这个函数是存在的，而compiler所
+做的事情就是选择相信我们，换一种角度就是说compiler并不会真正地去找这个函数是否是真的存在，那么
+我们的问题就是当我们运行整个项目的时候，compiler怎么知道我们的这个函数是真的存在，这就是linker
+所做的事情了。linker将会检查我们的函数是否存在然后将这些cpp files结合成一个大的文件。最后进行
+运行。
+*/
+void Log(const char* message);
+
 int main()
 {
 /*
@@ -53,8 +63,8 @@ int main()
 4）;
 	这个符号相当于是告诉compiler，这一行的代码执行到;符号前就已经结束了
 */
-	std::cout << "hello world" << std::endl;
-	
+	//std::cout << "hello world" << std::endl;
+	Log("hello world");
 /*
 	等待我们按下enter键的时候,然后才继续执行下一行的代码
 */
@@ -68,5 +78,12 @@ Q:how the C++ works ?
 just copy the iostream file and paste that file to the current file,this is the first 
 step.
 
-	step2:
+	step2:compiler will compile the .cpp files rather than header files to binary files
+this is a key point which we should pay attention to.
+
+	step3:every cpp files will be compiled an object individually.That is said that every
+cpp files is individually.
+
+	step4:Because we have got these individual cpp files,now we need a way which can 
+combine these objects files into only one file. And this is our friend linker's job.
 */
