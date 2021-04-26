@@ -1,7 +1,7 @@
 #include <iostream>
 #define LOG(x) std::cout << x << std::endl;
 
-void Increment(int* value)
+void Increment_pointer(int* value)
 {
 	*value = *value + 1;
 }
@@ -9,14 +9,14 @@ void Increment(int* value)
 int main()
 {
 	int a = 8;
-	int& ref = a;
-	int* address_a = &a;
-	Increment(address_a);
+	Increment_pointer(&a);
 	LOG(a);
-	LOG(&ref);
-	std::cin.get();
+
 }
 
 /*
-	还没有把这部分的内容完全的理解，明天继续
+1）总结
+	1、referencea are just pointers
+	2、说是references只是一个语法糖，那么就说明本质上并不是一个新的东西，其本质上就是一个pointer
+如果我们把他当作是一个部分功能缺失的pointer，那么理解起来应该会相对容易一点。
 */
